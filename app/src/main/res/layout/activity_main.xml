@@ -39,7 +39,7 @@
         android:layout_marginTop="25dp"
         android:text="Welcome, Login!"
         android:textColor="#211E18"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="bold" />
 
 
@@ -83,7 +83,8 @@
         android:layout_marginTop="50dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        android:src="@drawable/app_btn_circle" />
+        android:src="@drawable/app_btn_circle"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/signup"
