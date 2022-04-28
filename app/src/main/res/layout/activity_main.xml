@@ -44,7 +44,7 @@
 
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_below="@+id/welcometxt"
@@ -62,7 +62,7 @@
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_below="@+id/username"
+        android:layout_below="@+id/email"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/textbox_gradient"
