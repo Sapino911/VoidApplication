@@ -8,12 +8,23 @@
     android:paddingBottom="@dimen/activity_horizontal_margin"
     tools:context=".CollectionAccount">
 
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="5dp"
+        android:padding="5dp"
+        android:background="@color/app_color_green"
+        android:text="logout" />
+
     <TextView
         android:id="@+id/accname"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
+        android:layout_below="@id/logout"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="100dp"
         android:background="@color/app_black"
         android:padding="10dp"
         android:text="John Simon"
@@ -25,14 +36,14 @@
         android:id="@+id/txtmyacc"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_below="@id/accname"
-        android:text="Collections"
+        android:layout_alignParentEnd="true"
         android:layout_marginTop="5dp"
-        android:padding="10dp"
-        android:textColor="@color/white"
         android:background="@color/app_black"
-        android:textSize="35sp"
+        android:padding="10dp"
+        android:text="Collections"
+        android:textColor="@color/white"
+        android:textSize="25sp"
         android:textStyle="bold" />
 
 
