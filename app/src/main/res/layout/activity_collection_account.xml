@@ -20,23 +20,22 @@
         android:text="logout" />
 
     <TextView
-        android:id="@+id/accname"
+        android:id="@+id/fullName"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/logout"
         android:layout_alignParentEnd="true"
         android:background="@color/app_black"
         android:padding="10dp"
-        android:text="John Simon"
         android:textColor="@color/white"
         android:textSize="15sp"
         android:textStyle="bold" />
-
+    <!--        android:text="John Simon"-->
     <TextView
         android:id="@+id/txtmyacc"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/accname"
+        android:layout_below="@id/fullName"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="5dp"
         android:background="@color/app_black"
