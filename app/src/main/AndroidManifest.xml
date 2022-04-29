@@ -11,7 +11,8 @@
         android:theme="@style/Theme.VoidApplication">
         <activity
             android:name=".ForgotPassword"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.VoidApplication.BackgroundImageStyle"/>
 
         <meta-data
             android:name="com.google.android.actions"
@@ -19,10 +20,12 @@
 
         <activity
             android:name=".Collection_Overview"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.VoidApplication.BackgroundImageStyle"/>
         <activity
             android:name=".Add_Collection"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.VoidApplication.BackgroundImageStyle" />
         <activity
             android:name=".CollectionAccount"
             android:exported="false"
