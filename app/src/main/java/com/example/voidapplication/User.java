@@ -2,12 +2,12 @@ package com.example.voidapplication;
 
 public class User {
 
-    public String fullName, email;
+    public String name, email;
 
     public User(){}
 
     public User (String name, String email){
-        this.fullName = fullName;
+        this.name = name;
         this.email = email;
     }
 }

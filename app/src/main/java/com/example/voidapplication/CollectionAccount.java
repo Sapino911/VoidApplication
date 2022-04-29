@@ -55,7 +55,7 @@ public class CollectionAccount extends AppCompatActivity {
         reference = FirebaseDatabase.getInstance().getReference("Users");
         userID = user.getUid();
 
-        final TextView fullNameTextView = (TextView) findViewById(R.id.fullName);
+        final TextView fullNameTextView = (TextView) findViewById(R.id.name);
 
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -65,7 +65,7 @@ public class CollectionAccount extends AppCompatActivity {
                 User userProfile = snapshot.getValue(User.class);
 
                 if(userProfile != null){
-                    String fullName = userProfile.fullName;
+                    String fullName = userProfile.name;
 
                     fullNameTextView.setText(fullName);
                 }

@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,8 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
     //create Variables
     private EditText textEmail, textPassword;
-    private ImageButton btncirlcelogin;
+    private ImageButton btnLogin;
     private Button signup;
+    private TextView forgotPassword;
 
 
 
@@ -45,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Initialize Login Button
-        btncirlcelogin = (ImageButton) findViewById(R.id.btncirlcelogin);
-        btncirlcelogin.setOnClickListener(new View.OnClickListener() {
+        btnLogin = (ImageButton) findViewById(R.id.btncirlcelogin);
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 userLogin();
@@ -56,12 +58,25 @@ public class MainActivity extends AppCompatActivity {
         textEmail = (EditText) findViewById(R.id.email);
         textPassword = (EditText) findViewById(R.id.password);
 
+        forgotPassword = (TextView) findViewById(R.id.forgotPassword);
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ForgotPassword();
+            }
+        });
+
         mAuth = FirebaseAuth.getInstance();
     }
 
     //Method
     public void openCreate_Account(){
         Intent intent = new Intent(this, Create_Account.class);
+        startActivity(intent);
+    }
+
+    public void ForgotPassword(){
+        Intent intent = new Intent(this, ForgotPassword.class);
         startActivity(intent);
     }
 
