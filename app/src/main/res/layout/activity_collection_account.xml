@@ -29,7 +29,8 @@
         android:padding="10dp"
         android:textColor="@color/white"
         android:textSize="15sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:drawableLeft="@drawable/ic_account_circle"/>
     <!--        android:text="John Simon"-->
     <TextView
         android:id="@+id/txtmyacc"
