@@ -97,8 +97,10 @@ public class Create_Account extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
-                                        Toast.makeText(Create_Account.this, "Registration Successful!", Toast.LENGTH_LONG).show();
                                         progressBar.setVisibility(View.VISIBLE);
+                                        Toast.makeText(Create_Account.this, "Registration Successful!", Toast.LENGTH_LONG).show();
+                                        Intent intent = new Intent(Create_Account.this, MainActivity.class);
+                                        startActivity(intent);
 
                                     } else{
                                         Toast.makeText(Create_Account.this, "Registration Failed! Try again!", Toast.LENGTH_LONG).show();
