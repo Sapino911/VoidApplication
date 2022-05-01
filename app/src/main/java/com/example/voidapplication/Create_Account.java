@@ -92,7 +92,7 @@ public class Create_Account extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
-                                        Toast.makeText(Create_Account.this, "Registration Succesful!", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(Create_Account.this, "Registration Successful!", Toast.LENGTH_LONG).show();
 
                                     } else{
                                         Toast.makeText(Create_Account.this, "Registration Failed! Try again!", Toast.LENGTH_LONG).show();
