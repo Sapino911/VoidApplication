@@ -31,7 +31,7 @@
         android:textSize="15sp"
         android:textStyle="bold"
         app:drawableLeftCompat="@drawable/ic_account_circle" />
-    <!--        android:text="John Simon"-->
+
     <TextView
         android:id="@+id/collections"
         android:layout_width="220dp"

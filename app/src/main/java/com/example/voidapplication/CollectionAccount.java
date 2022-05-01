@@ -67,7 +67,7 @@ public class CollectionAccount extends AppCompatActivity {
                 if(userProfile != null){
                     String fullName = userProfile.name;
 
-                    fullNameTextView.setText(fullName);
+                    fullNameTextView.setText(" " + fullName);
                 }
             }
 
