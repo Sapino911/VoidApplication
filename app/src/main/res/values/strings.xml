@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">VoidApplication</string>
-    <string name="welcome_login">Welcome, Login!</string>
+    <string name="welcome_login">Login</string>
     <string name="your_space_your_collections">Your Space . Your Collections!</string>
     <string name="email_address">Email address</string>
     <string name="password">Password</string>
