@@ -32,7 +32,7 @@ public class Create_Account extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        btncirlcecreate = (ImageButton) findViewById(R.id.btncirlcecreate);
+        btncirlcecreate = (ImageButton) findViewById(R.id.btn_create);
         btncirlcecreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { Create_Account(); }

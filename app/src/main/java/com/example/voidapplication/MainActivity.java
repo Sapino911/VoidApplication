@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Initialize Login Button
-        btnLogin = (ImageButton) findViewById(R.id.btncirlcelogin);
+        btnLogin = (ImageButton) findViewById(R.id.btn_login);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         textEmail = (EditText) findViewById(R.id.email);
         textPassword = (EditText) findViewById(R.id.password);
 
-        forgotPassword = (TextView) findViewById(R.id.forgotPassword);
+        forgotPassword = (TextView) findViewById(R.id.forgot_password);
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

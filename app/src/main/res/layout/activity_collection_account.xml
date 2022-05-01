@@ -15,9 +15,9 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="5dp"
-        android:padding="5dp"
         android:background="@color/app_color_green"
-        android:text="logout" />
+        android:padding="5dp"
+        android:text="@string/logout" />
 
     <TextView
         android:id="@+id/name"
@@ -30,10 +30,10 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         android:textStyle="bold"
-        android:drawableLeft="@drawable/ic_account_circle"/>
+        app:drawableLeftCompat="@drawable/ic_account_circle" />
     <!--        android:text="John Simon"-->
     <TextView
-        android:id="@+id/txtmyacc"
+        android:id="@+id/collections"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/name"
@@ -41,17 +41,17 @@
         android:layout_marginTop="5dp"
         android:background="@color/app_black"
         android:padding="10dp"
-        android:text="Collections"
+        android:text="@string/collections"
         android:textColor="@color/white"
         android:textSize="25sp"
         android:textStyle="bold" />
 
 
     <TextView
-        android:id="@+id/appcont"
+        android:id="@+id/category_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtmyacc"
+        android:layout_below="@+id/collections"
         android:layout_marginTop="25dp"
         android:background="@color/app_color_green"
         android:gravity="center"
@@ -59,7 +59,7 @@
         android:paddingTop="25dp"
         android:paddingRight="70dp"
         android:paddingBottom="25dp"
-        android:text="View all your categories below or create a new category."
+        android:text="@string/category_header"
         android:textColor="@color/white"
         android:textSize="12sp" />
 
@@ -67,7 +67,7 @@
         android:id="@+id/category1"
         android:layout_width="310dp"
         android:layout_height="60dp"
-        android:layout_below="@id/appcont"
+        android:layout_below="@id/category_header"
         android:layout_marginStart="16dp"
         android:layout_marginTop="25dp"
         android:background="@color/app_black" />
@@ -76,7 +76,7 @@
         android:id="@+id/catcount"
         android:layout_width="55dp"
         android:layout_height="60dp"
-        android:layout_below="@id/appcont"
+        android:layout_below="@id/category_header"
         android:layout_marginStart="10dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="16dp"
@@ -89,7 +89,7 @@
         android:textSize="20sp" />
 
     <ImageButton
-        android:id="@+id/btncirlceadd"
+        android:id="@+id/add_category"
         android:layout_width="180dp"
         android:layout_height="90dp"
         android:layout_alignParentBottom="true"
