@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,12 +30,14 @@ public class MainActivity extends AppCompatActivity {
     private Button signup;
     private TextView forgotPassword;
 
-
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mAuth = FirebaseAuth.getInstance();
 
         //Initialize Signup Button
         signup = (Button) findViewById(R.id.signup);
@@ -66,7 +69,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mAuth = FirebaseAuth.getInstance();
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
+
     }
 
     //Method
@@ -106,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
             textPassword.requestFocus();
             return;
         }
+
+        progressBar.setVisibility(View.VISIBLE);
 
         mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override

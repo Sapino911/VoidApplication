@@ -9,6 +9,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,8 +24,10 @@ public class Create_Account extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
 
-    private ImageButton btncirlcecreate;
+    private ImageButton buttonCreate;
     private EditText textName, textEmail, textPassword;
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +35,8 @@ public class Create_Account extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        btncirlcecreate = (ImageButton) findViewById(R.id.btn_create);
-        btncirlcecreate.setOnClickListener(new View.OnClickListener() {
+        buttonCreate = (ImageButton) findViewById(R.id.btn_create);
+        buttonCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) { Create_Account(); }
         });
@@ -41,6 +44,8 @@ public class Create_Account extends AppCompatActivity {
         textName = (EditText) findViewById(R.id.name);
         textEmail = (EditText) findViewById(R.id.email);
         textPassword = (EditText) findViewById(R.id.password);
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
     }
 
@@ -93,14 +98,17 @@ public class Create_Account extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful()){
                                         Toast.makeText(Create_Account.this, "Registration Successful!", Toast.LENGTH_LONG).show();
+                                        progressBar.setVisibility(View.VISIBLE);
 
                                     } else{
                                         Toast.makeText(Create_Account.this, "Registration Failed! Try again!", Toast.LENGTH_LONG).show();
+                                        progressBar.setVisibility(View.GONE);
                                     }
                                 }
                             });
                         }else{
                             Toast.makeText(Create_Account.this, "Failed to create account", Toast.LENGTH_LONG).show();
+                            progressBar.setVisibility(View.GONE);
                         }
                     }
                 });

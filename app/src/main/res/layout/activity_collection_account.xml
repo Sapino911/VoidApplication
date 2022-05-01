@@ -99,4 +99,11 @@
         android:scaleType="fitCenter"
         android:src="@drawable/add_button_circle" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+
 </RelativeLayout>

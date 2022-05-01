@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,8 @@ public class CollectionAccount extends AppCompatActivity {
     private ImageButton btnAdd;
     private Button logout;
 
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +44,8 @@ public class CollectionAccount extends AppCompatActivity {
             }
         });
 
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
         logout = (Button) findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +53,7 @@ public class CollectionAccount extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(CollectionAccount.this, MainActivity.class);
                 startActivity(intent);
+                progressBar.setVisibility(View.VISIBLE);
             }
         });
 
