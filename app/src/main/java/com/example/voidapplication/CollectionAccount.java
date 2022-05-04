@@ -36,7 +36,7 @@ public class CollectionAccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection_account);
 
-        btnAdd = (ImageButton) findViewById(R.id.add_category);
+        //btnAdd = (ImageButton) findViewById(R.id.add_category);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,7 +46,7 @@ public class CollectionAccount extends AppCompatActivity {
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
-        logout = (Button) findViewById(R.id.logout);
+        //logout = (Button) findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
