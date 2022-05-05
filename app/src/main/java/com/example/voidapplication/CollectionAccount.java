@@ -46,7 +46,7 @@ public class CollectionAccount extends AppCompatActivity {
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
-        //logout = (Button) findViewById(R.id.logout);
+        logout = (Button) findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

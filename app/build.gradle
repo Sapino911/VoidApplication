@@ -52,7 +52,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     // ViewModel
-    implementation "androidx.arch.lifecycle:extensions:$lifecycle_version"
+   //implementation "androidx.arch.lifecycle:extensions:$lifecycle_version"
     // LiveData
     implementation "androidx.lifecycle:lifecycle-livedata:$lifecycle_version"
 
