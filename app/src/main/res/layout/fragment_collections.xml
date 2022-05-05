@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".CollectionFragment">
+    tools:context=".CollectionsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_view_contacts"
+        android:id="@+id/recycler_view_collections"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/recycler_view_collection"

@@ -8,7 +8,7 @@
     android:paddingBottom="@dimen/activity_horizontal_margin"
     tools:context=".CollectionAccount">
 
-   <!-- <Button
+    <Button
         android:id="@+id/logout"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
         android:textColor="@color/white"
         android:textSize="12sp" />
 
-&lt;!&ndash;    <ImageButton
+<!--     <ImageButton
         android:id="@+id/category1"
         android:layout_width="310dp"
         android:layout_height="60dp"
@@ -97,14 +97,14 @@
         android:layout_marginTop="50dp"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
-        android:src="@drawable/add_button_circle" />
+        android:src="@drawable/add_button_circle" />-->
 
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:visibility="gone"/>-->
+        android:visibility="gone"/>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
@@ -112,5 +112,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
+        android:layout_below="@id/category_header"
         app:navGraph="@navigation/my_nav" />
 </RelativeLayout>
