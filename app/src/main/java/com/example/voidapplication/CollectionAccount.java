@@ -36,13 +36,13 @@ public class CollectionAccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection_account);
 
-        //btnAdd = (ImageButton) findViewById(R.id.add_category);
+        /*btnAdd = (ImageButton) findViewById(R.id.add_category);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openAdd_Collection();
             }
-        });
+        });*/
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
@@ -84,8 +84,8 @@ public class CollectionAccount extends AppCompatActivity {
         });
     }
 
-    public void openAdd_Collection() {
+   /* public void openAdd_Collection() {
         AddCollectionDialog collectionDialog = new AddCollectionDialog();
         collectionDialog.show(getSupportFragmentManager(), "Add Collection");
-    }
+    }*/
 }

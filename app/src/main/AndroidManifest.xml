@@ -23,10 +23,6 @@
             android:exported="false"
             android:theme="@style/Theme.VoidApplication.BackgroundImageStyle"/>
         <activity
-            android:name=".Add_Collection"
-            android:exported="false"
-            android:theme="@style/Theme.VoidApplication.BackgroundImageStyle" />
-        <activity
             android:name=".CollectionAccount"
             android:exported="false"
             android:theme="@style/Theme.VoidApplication.BackgroundImageStyle" />

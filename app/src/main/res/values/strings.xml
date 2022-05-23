@@ -16,4 +16,8 @@
     <string name="category_header">View all your categories below or create a new category.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_new_contact">Add Collection</string>
+    <string name="add_title">Title</string>
+    <string name="add_decription">Description</string>
+    <string name="save_collection">Save Collection</string>
 </resources>
