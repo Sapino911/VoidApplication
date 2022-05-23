@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VoidApplication">
         <activity
-            android:name=".ForgotPassword"
+            android:name=".View.ForgotPassword"
             android:exported="false"
             android:theme="@style/Theme.VoidApplication.BackgroundImageStyle"/>
 
@@ -19,23 +19,23 @@
             android:resource="@xml/menu" />
 
         <activity
-            android:name=".Collection_Overview"
+            android:name=".View.Collection_Overview"
             android:exported="false"
             android:theme="@style/Theme.VoidApplication.BackgroundImageStyle"/>
         <activity
-            android:name=".CollectionAccount"
+            android:name=".View.CollectionAccount"
             android:exported="false"
             android:theme="@style/Theme.VoidApplication.BackgroundImageStyle" />
         <activity
-            android:name=".Create_Account"
+            android:name=".View.Create_Account"
             android:exported="false"
             android:theme="@style/Theme.VoidApplication.BackgroundImageStyle" />
         <activity
-            android:name=".MainActivity"
+            android:name=".View.MainActivity"
             android:exported="false"
             android:theme="@style/Theme.VoidApplication.BackgroundImageStyle" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".View.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

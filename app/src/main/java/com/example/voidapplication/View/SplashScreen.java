@@ -1,10 +1,12 @@
-package com.example.voidapplication;
+package com.example.voidapplication.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.voidapplication.R;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -17,7 +19,7 @@ public class SplashScreen extends AppCompatActivity {
         splash.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashScreen.this,MainActivity.class));
+                startActivity(new Intent(SplashScreen.this, MainActivity.class));
                 finish();
             }
         },4000);

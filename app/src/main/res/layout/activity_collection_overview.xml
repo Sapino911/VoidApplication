@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/relativelayout"
-    tools:context=".Collection_Overview">
+    tools:context=".View.Collection_Overview">
 
     <TextView
         android:id="@+id/accname"

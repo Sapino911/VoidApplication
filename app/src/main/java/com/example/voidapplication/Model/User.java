@@ -1,4 +1,4 @@
-package com.example.voidapplication;
+package com.example.voidapplication.Model;
 
 public class User {
 

@@ -1,10 +1,12 @@
-package com.example.voidapplication;
+package com.example.voidapplication.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.voidapplication.R;
 
 import java.util.ArrayList;
 
