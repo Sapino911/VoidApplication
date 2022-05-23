@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.VoidApplication">
         <activity
-            android:name=".View.ForgotPassword"
-            android:exported="false"
-            android:theme="@style/Theme.VoidApplication.BackgroundImageStyle"/>
+            android:name=".View.CollectionDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".View.CollectionItemsActivity"
+            android:exported="false" />
+
+
 
         <meta-data
             android:name="com.google.android.actions"
@@ -21,19 +25,10 @@
         <activity
             android:name=".View.Collection_Overview"
             android:exported="false"
-            android:theme="@style/Theme.VoidApplication.BackgroundImageStyle"/>
-        <activity
-            android:name=".View.CollectionAccount"
-            android:exported="false"
             android:theme="@style/Theme.VoidApplication.BackgroundImageStyle" />
-        <activity
-            android:name=".View.Create_Account"
-            android:exported="false"
-            android:theme="@style/Theme.VoidApplication.BackgroundImageStyle" />
-        <activity
-            android:name=".View.MainActivity"
-            android:exported="false"
-            android:theme="@style/Theme.VoidApplication.BackgroundImageStyle" />
+
+
+
         <activity
             android:name=".View.SplashScreen"
             android:exported="true">
@@ -43,6 +38,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".View.MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.VoidApplication.BackgroundImageStyle" />
+        <activity
+            android:name=".View.Create_Account"
+            android:exported="false"
+            android:theme="@style/Theme.VoidApplication.BackgroundImageStyle" />
+        <activity
+            android:name=".View.ForgotPassword"
+            android:exported="false"
+            android:theme="@style/Theme.VoidApplication.BackgroundImageStyle" />
+
+
+        <activity
+            android:name=".View.CollectionAccount"
+            android:exported="false"
+            android:parentActivityName=".View.CollectionAccount"
+            android:theme="@style/Theme.VoidApplication.BackgroundImageStyle" />
+       <!-- <activity
+            android:name=".View.AddCollectionActivity"
+            android:parentActivityName=".View.CollectionAccount"
+            android:theme="@style/Theme.VoidApplication.BackgroundImageStyle"
+            android:exported="false" />-->
+
     </application>
 
 </manifest>

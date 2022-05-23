@@ -28,8 +28,8 @@ public class CollectionAccount extends AppCompatActivity {
     private DatabaseReference reference;
     private String userID;
 
-    private ImageButton btnAdd;
-    private Button logout;
+    private ImageButton add_category, btnAdd;
+    private Button  logout;
 
     private ProgressBar progressBar;
 
@@ -38,22 +38,30 @@ public class CollectionAccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_collection_account);
 
-        /*btnAdd = (ImageButton) findViewById(R.id.add_category);
-        btnAdd.setOnClickListener(new View.OnClickListener() {
+        add_category = (ImageButton) findViewById(R.id.add_category);
+        add_category.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openAdd_Collection();
             }
-        });*/
+        });
 
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        /*add_category = (ImageButton) findViewById(R.id.add_category);
+        add_category.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent (CollectionAccount.this, AddCollectionActivity.class);
+                startActivity(intent);
+            }
+        });*/
 
         logout = (Button) findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                Intent intent = new Intent(CollectionAccount.this, MainActivity.class);
+                Intent intent = new Intent (CollectionAccount.this, MainActivity.class);
                 startActivity(intent);
                 progressBar.setVisibility(View.VISIBLE);
             }
@@ -75,7 +83,7 @@ public class CollectionAccount extends AppCompatActivity {
                 if(userProfile != null){
                     String fullName = userProfile.name;
 
-                    fullNameTextView.setText(" " + fullName);
+                    fullNameTextView.setText(" " + fullName.toUpperCase());
                 }
             }
 
@@ -86,8 +94,8 @@ public class CollectionAccount extends AppCompatActivity {
         });
     }
 
-   /* public void openAdd_Collection() {
-        AddCollectionDialog collectionDialog = new AddCollectionDialog();
+   public void openAdd_Collection() {
+        AddCollectionActivity collectionDialog = new AddCollectionActivity();
         collectionDialog.show(getSupportFragmentManager(), "Add Collection");
-    }*/
+    }
 }
