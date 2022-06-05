@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -23,8 +24,8 @@ import java.util.Date;
 import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder> {
-    private Context mContext;
-    private List<Collection> collections;
+    private final Context mContext;
+    private final List<Collection> collections;
     private OnItemClickListener mListener;
 
     public RecyclerAdapter(Context context, List<Collection> uploads) {
@@ -32,10 +33,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         collections = uploads;
     }
 
-
-
+    @NonNull
     @Override
-    public RecyclerAdapter.RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerAdapter.RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(mContext).inflate(R.layout.row_model, parent, false);
         return new RecyclerViewHolder(v);
     }
@@ -65,6 +65,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
 
         public TextView nameTextView,descriptionTextView,dateTextView;
         public ImageView collectionImageView;
+        //public LinearLayout collectionImageView;
 
         public RecyclerViewHolder(View itemView) {
             super(itemView);

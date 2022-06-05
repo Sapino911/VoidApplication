@@ -9,9 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VoidApplication">
-        <activity
-            android:name=".View.CollectionDetailsActivity"
-            android:exported="false" />
+
         <activity
             android:name=".View.CollectionItemsActivity"
             android:exported="false" />
@@ -51,12 +49,17 @@
             android:exported="false"
             android:theme="@style/Theme.VoidApplication.BackgroundImageStyle" />
 
-
         <activity
             android:name=".View.CollectionAccount"
             android:exported="false"
-            android:parentActivityName=".View.CollectionAccount"
+            android:parentActivityName=".View.MainActivity"
             android:theme="@style/Theme.VoidApplication.BackgroundImageStyle" />
+
+        <activity
+            android:name=".View.CollectionDetailsActivity"
+            android:exported="false"
+            android:parentActivityName=".View.CollectionAccount"
+            android:theme="@style/Theme.VoidApplication.BackgroundImageStyle"/>
        <!-- <activity
             android:name=".View.AddCollectionActivity"
             android:parentActivityName=".View.CollectionAccount"
