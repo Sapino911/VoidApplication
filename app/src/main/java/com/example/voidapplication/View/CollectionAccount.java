@@ -56,11 +56,8 @@ public class CollectionAccount extends AppCompatActivity implements RecyclerAdap
 
     private ProgressBar progressBar;
 
-    public CollectionAccount() {
-    }
-
     private void openDetailActivity(String[] data){
-        Intent intent = new Intent(this, AddCollectionActivity.class);
+        Intent intent = new Intent(this, CollectionDetailsActivity.class);
         intent.putExtra("NAME_KEY",data[0]);
         intent.putExtra("DESCRIPTION_KEY",data[1]);
         intent.putExtra("IMAGE_KEY",data[2]);
@@ -123,6 +120,7 @@ public class CollectionAccount extends AppCompatActivity implements RecyclerAdap
         //reference = FirebaseDatabase.getInstance().getReference("collections_uploads");
 
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 //Create User Object
@@ -145,7 +143,7 @@ public class CollectionAccount extends AppCompatActivity implements RecyclerAdap
         mStorage = FirebaseStorage.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("collections_uploads");
 
-        mDatabaseRef.addValueEventListener(new ValueEventListener() {
+        mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 

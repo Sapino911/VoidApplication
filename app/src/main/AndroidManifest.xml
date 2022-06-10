@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.voidapplication">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,24 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.VoidApplication">
-
-        <activity
-            android:name=".View.CollectionItemsActivity"
-            android:exported="false" />
-
-
-
-        <meta-data
-            android:name="com.google.android.actions"
-            android:resource="@xml/menu" />
-
-        <activity
-            android:name=".View.Collection_Overview"
-            android:exported="false"
-            android:theme="@style/Theme.VoidApplication.BackgroundImageStyle" />
-
-
-
         <activity
             android:name=".View.SplashScreen"
             android:exported="true">
@@ -36,6 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/menu" />
         <activity
             android:name=".View.MainActivity"
             android:exported="false"
@@ -48,24 +33,25 @@
             android:name=".View.ForgotPassword"
             android:exported="false"
             android:theme="@style/Theme.VoidApplication.BackgroundImageStyle" />
-
         <activity
             android:name=".View.CollectionAccount"
             android:exported="false"
             android:parentActivityName=".View.MainActivity"
             android:theme="@style/Theme.VoidApplication.BackgroundImageStyle" />
-
         <activity
             android:name=".View.CollectionDetailsActivity"
             android:exported="false"
             android:parentActivityName=".View.CollectionAccount"
             android:theme="@style/Theme.VoidApplication.BackgroundImageStyle"/>
-       <!-- <activity
-            android:name=".View.AddCollectionActivity"
-            android:parentActivityName=".View.CollectionAccount"
-            android:theme="@style/Theme.VoidApplication.BackgroundImageStyle"
-            android:exported="false" />-->
-
+        <!-- <activity
+             android:name=".View.Collection_Overview"
+             android:exported="false"
+             android:theme="@style/Theme.VoidApplication.BackgroundImageStyle" />
+         <activity
+             android:name=".View.AddCollectionActivity"
+             android:parentActivityName=".View.CollectionAccount"
+             android:theme="@style/Theme.VoidApplication.BackgroundImageStyle"
+             android:exported="false" />-->
     </application>
 
 </manifest>
