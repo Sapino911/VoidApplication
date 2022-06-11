@@ -30,6 +30,8 @@ import com.example.voidapplication.Model.Collection;
 import com.example.voidapplication.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -38,6 +40,9 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.xml.transform.Result;
 
@@ -65,7 +70,12 @@ public class AddCollectionActivity extends AppCompatDialogFragment {
     private Uri mImageUri;
 
     private StorageReference mStorageRef;
-    private DatabaseReference mDatabaseRef;
+    private FirebaseUser user;
+    private DatabaseReference reference, mDatabaseRef;
+    private String userID;
+
+    private String userCollectionPath;
+    private String collectionPath;
 
     private StorageTask mUploadTask;
     //ActivityResultLauncher<String> mGetContent;
@@ -96,6 +106,13 @@ public class AddCollectionActivity extends AppCompatDialogFragment {
         descriptionEditText = view.findViewById ( R.id.collectionDescription );
         chosenImageView = view.findViewById(R.id.chosenImageView);
         uploadProgressBar = view.findViewById(R.id.progress_bar);
+
+        //Get User
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        reference = FirebaseDatabase.getInstance().getReference("Users");
+        userID = user.getUid();
+
+        userCollectionPath = "Users/" + userID + "/collections_uploads/";
 
         mStorageRef = FirebaseStorage.getInstance().getReference("collections_uploads");
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("collections_uploads");
@@ -214,6 +231,12 @@ public class AddCollectionActivity extends AppCompatDialogFragment {
 
                             String uploadId = mDatabaseRef.push().getKey();
                             mDatabaseRef.child(uploadId).setValue(upload);
+
+                            Map<String, Object> childUpdates = new HashMap<>();
+                            //The second parameter **here** (the value) does not matter, it's just that the key exists
+                            childUpdates.put(userCollectionPath + uploadId, true);
+
+                            FirebaseDatabase.getInstance().getReference().updateChildren(childUpdates);
 
                             uploadProgressBar.setVisibility(View.INVISIBLE);
                             openImagesActivity ();

@@ -1,6 +1,7 @@
 package com.example.voidapplication.View;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,6 +24,7 @@ import com.example.voidapplication.Model.User;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,11 +46,12 @@ public class CollectionAccount extends AppCompatActivity implements RecyclerAdap
     private ProgressBar mProgressBar;
     private FirebaseStorage mStorage;
     //private DatabaseReference mDatabaseRef;
-    private ValueEventListener mDBListener;
+    private ChildEventListener mDBListener;
+    private List<String> mKeys;
     private List<Collection> mCollections;
 
     private FirebaseUser user;
-    private DatabaseReference reference, mDatabaseRef;
+    private DatabaseReference reference, mDatabaseRef, currentUserCollectionRef;
     private String userID;
 
     private ImageButton add_category, btnAdd;
@@ -105,6 +108,7 @@ public class CollectionAccount extends AppCompatActivity implements RecyclerAdap
         mProgressBar.setVisibility(View.VISIBLE);
 
         mCollections = new ArrayList<>();
+        mKeys = new ArrayList<>();
         mAdapter = new RecyclerAdapter (CollectionAccount.this, mCollections);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setOnItemClickListener(CollectionAccount.this);
@@ -140,33 +144,78 @@ public class CollectionAccount extends AppCompatActivity implements RecyclerAdap
             }
         });
 
+        //Reference to the list of collections a user has
+        currentUserCollectionRef = FirebaseDatabase.getInstance().getReference().child("Users").child(userID).child("collections_uploads");
+
         mStorage = FirebaseStorage.getInstance();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("collections_uploads");
 
-        mDBListener = mDatabaseRef.addValueEventListener(new ValueEventListener() {
+        mDBListener = currentUserCollectionRef.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String previousChildName) {
+                //Here we retrieve the key of the memo the user has.
+                String key = dataSnapshot.getKey(); //for example memokey1
 
-                mCollections.clear();
+                //For later manipulations of the lists, we need to store the key in a list
+                mKeys.add(key);
 
-                for (DataSnapshot collectionSnapshot : dataSnapshot.getChildren()) {
-                    Collection upload = collectionSnapshot.getValue(Collection.class);
-                    if(upload != null){
-                        //assert upload != null;
-                        upload.setKey(collectionSnapshot.getKey());
-                        mCollections.add(upload);
+                //Now that we know which message belongs to the user,
+                //we request it from our Collections*/
+
+
+                assert key != null;
+                mDatabaseRef.child(key).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        /*mCollections.clear();johnsimon2359@gmail.com 654321
+                        Collection upload = collectionSnapshot.getValue(Collection.class);
+                        mCollections.add(upload);*/
+                        mCollections.clear();
+
+                        for (DataSnapshot collectionSnapshot : dataSnapshot.getChildren()) {
+                            Collection upload = dataSnapshot.getValue(Collection.class);
+                            if(upload != null){
+                                //assert upload != null;
+                                upload.setKey(collectionSnapshot.getKey());
+                                mCollections.add(upload);
+                            }
+                       }
+                        mAdapter.notifyDataSetChanged();
+                        mProgressBar.setVisibility(View.GONE);
                     }
-                }
-                mAdapter.notifyDataSetChanged();
-                mProgressBar.setVisibility(View.GONE);
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        Toast.makeText(CollectionAccount.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                        mProgressBar.setVisibility(View.INVISIBLE);
+                    }
+                });
+
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(CollectionAccount.this, databaseError.getMessage(), Toast.LENGTH_SHORT).show();
-                mProgressBar.setVisibility(View.INVISIBLE);
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
+
+
     }
 
     public void onItemClick(int position) {
