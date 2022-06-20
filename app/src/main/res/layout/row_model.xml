@@ -17,8 +17,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:id="@+id/collectionImageView"
-            android:padding="5dp"
-            android:src="@drawable/placeholder"/>
+            android:src="@drawable/placeholder2"/>
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -32,12 +31,13 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:padding="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
                 android:textColor="@color/white"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:text="Date Created"
                 android:id="@+id/dateTextView"
                 android:layout_gravity="center"
@@ -45,7 +45,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:text="Description"
                 android:id="@+id/descriptionTextView"
                 android:layout_gravity="center"

@@ -161,26 +161,22 @@ public class CollectionAccount extends AppCompatActivity implements RecyclerAdap
 
                 //Now that we know which message belongs to the user,
                 //we request it from our Collections*/
-
-
-                assert key != null;
                 mDatabaseRef.child(key).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
                         /*mCollections.clear();johnsimon2359@gmail.com 654321
                         Collection upload = collectionSnapshot.getValue(Collection.class);
                         mCollections.add(upload);*/
                         mCollections.clear();
 
-                        for (DataSnapshot collectionSnapshot : dataSnapshot.getChildren()) {
+                       // for (DataSnapshot collectionSnapshot : dataSnapshot.getChildren()) {
                             Collection upload = dataSnapshot.getValue(Collection.class);
                             if(upload != null){
                                 //assert upload != null;
-                                upload.setKey(collectionSnapshot.getKey());
+                                //upload.setKey(collectionSnapshot.getKey());
                                 mCollections.add(upload);
                             }
-                       }
+                       //}
                         mAdapter.notifyDataSetChanged();
                         mProgressBar.setVisibility(View.GONE);
                     }
